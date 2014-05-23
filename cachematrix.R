@@ -18,6 +18,7 @@ makeCacheMatrix <- function(x = matrix())
         
         ## can be set from outside environment
         setsolve <- function(solve) m <<- solve
+        
         getsolve <- function() m
         list(set = set, get = get,
              setsolve = setsolve,
@@ -30,7 +31,9 @@ makeCacheMatrix <- function(x = matrix())
 cacheSolve <- function(x, ...) 
 {
         ## Return a matrix that is the inverse of 'x'
+        
         m <- x$getsolve()
+        
         ## Checking for a non changed matrix
         if(!is.null(m)) {
                 message("getting cached data")
